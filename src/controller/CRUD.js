@@ -1,3 +1,5 @@
+const { ObjectId } = require("mongodb");
+
 // VIEW DATA
 async function viewData(db, collectionName) {
     const collection = db.collection(collectionName);
@@ -51,7 +53,7 @@ async function findById(client, collectionName, id) {
   try {
     const collection = client.collection(collectionName);
 
-    const result = await collection.findOne({ _id: new ObjectId(id) });
+    const result = await collection.findOne({ _id: id });
 
     if (result) {
       console.log("Yes from findOneById");
