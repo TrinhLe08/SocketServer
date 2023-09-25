@@ -1,17 +1,17 @@
 require("dotenv").config();
+import express from "express";
 import { createServer } from "http";
 import configViewEngine from './configs/configsViewEngine';
 import CRUD from './controller/CRUD'
 const { MongoClient, ObjectId } = require("mongodb");
-const express = require('express');
 const morgan = require('morgan')
 const cors = require("cors");
 const bodyParser = require('body-parser');
 const app = express();
+const server =  createServer(app);
 app.use(morgan('combined'))
 app.use(bodyParser.json());
 app.use(cors()); 
-const server =  createServer(app);
 
 // view enginer
 configViewEngine(app)
