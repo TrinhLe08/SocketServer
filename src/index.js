@@ -8,10 +8,10 @@ const morgan = require('morgan')
 const cors = require("cors");
 const bodyParser = require('body-parser');
 const app = express();
+app.use(morgan('combined'))
+app.use(bodyParser.json());
+app.use(cors()); 
 const server =  createServer(app);
-// app.use(morgan('combined'))
-// app.use(bodyParser.json());
-// app.use(cors()); 
 
 // view enginer
 configViewEngine(app)
